@@ -30,12 +30,12 @@ uint8_t DHT11_getHumid(void);
  * @brief Returns DTH11 temp integral. Call DTH11_readData() first
  * @return temp val decimal
  */
-uint8_t getTempIntegral(void);
+uint8_t DHT11_getTempIntegral(void);
 
 /**
  * @brief Returns DTH11 temp decimal. Call DTH11_readData() first
  * @return temp val integral
  */
-uint8_t getTempDecimal(void);
+uint8_t DHT11_getTempDecimal(void);
 
 #endif
