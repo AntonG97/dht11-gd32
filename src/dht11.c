@@ -6,7 +6,7 @@ Libraries (other than vendor SDK and gcc libraries) must have .h-files in /lib/[
 */
 
 #include "gd32vf103.h"
-#include "include\dht11.h"
+#include "../include/dht11.h"
 
 typedef struct{
 	uint8_t humid_integral;
