@@ -24,4 +24,6 @@ The MCU polls the DHT11 sensor module by following a strict pattern from the dat
 By setting the data pin LOW and HIGH for a predetermined anount of time, the sensor module responds with 5 bytes of data, the last byte is a checksum, see pictures below
 
 ![DHT11 sensor](img/SDS00001.BMP)
+![DHT11 sensor](img/SDS00002.BMP)
+
 
