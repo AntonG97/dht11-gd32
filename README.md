@@ -17,6 +17,7 @@ This driver is specific to the GD32VF103 platform and uses functions like:
 ```c
 gpio_input_bit_get(GPIOA, GPIO_PIN_1);
 timer_enable(TIMER6);
+```
 
 ## How it works
 The MCU polls the DHT11 sensor module by following a strict pattern from the datasheet https://www.electrokit.com/upload/product/41015/41015728/DHT11.pdf 
