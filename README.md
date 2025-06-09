@@ -19,4 +19,9 @@ gpio_input_bit_get(GPIOA, GPIO_PIN_1);
 or
 timer_enable(TIMER6);
 
+## How it works
+The MCU polls the DHT11 sensor module by following a strict pattern from the datasheet https://www.electrokit.com/upload/product/41015/41015728/DHT11.pdf 
+By setting the data pin LOW and HIGH for a predetermined anount of time, the sensor module responds with 5 bytes of data, the last byte is a checksum, see pictures below
+
+![DHT11 sensor](img/SDS00001.BMP)
 
