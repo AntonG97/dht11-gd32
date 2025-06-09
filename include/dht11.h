@@ -16,14 +16,30 @@ void DHT11_readData(void);
 
 /**
  * @brief Returns DTH11 temp in celcius. Call DTH11_readData() first
- * @return Temp val
+ * @return Temp float temp val
  */
 float DHT11_getTemp(void);
 
 /**
  * @brief Returns DTH11 humidity. Call DTH11_readData() first
- * @return Humid val
+ * @return Humid float val
  */
-float DHT11_getHumid(void);
+uint8_t DHT11_getHumid(void);
+
+/**
+ * @brief Returns DTH11 temp integral. Call DTH11_readData() first
+ * @return temp val decimal
+ */
+uint8_t getTempIntegral(void){
+	return data.temp_integral;
+}
+
+/**
+ * @brief Returns DTH11 temp decimal. Call DTH11_readData() first
+ * @return temp val integral
+ */
+uint8_t getTempDecimal(void){
+	return data.temp_decimal;
+}
 
 #endif

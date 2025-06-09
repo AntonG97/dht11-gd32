@@ -20,20 +20,6 @@ static uint32_t sel_gpio_pin;
 static uint32_t sel_gpio_perpih;
 static timer_parameter_struct timer_initparam;
 
-/*
-int main(){
-
-	DHT11_init(GPIOB, GPIO_PIN_5);
-
-	while(1){
-
-	for(volatile int i = 0; i < 9000000; i++);
-	 DHT11_readData();
-	
-	}
-
-}
-*/
 
 /*!
  	\brief Initilizes the DHT11 module. Selected GPIOx Configures the data pin. RCU for GPIO and timer6 init
@@ -204,7 +190,22 @@ float DHT11_getTemp(void){
  * @brief Returns DTH11 humidity. Call DTH11_readData() first
  * @return Humid val
  */
-float DHT11_getHumid(void){
-	return (float)data.humid_integral;
+uint8_t DHT11_getHumid(void){
+	return data.humid_integral;
 }
 
+/**
+ * @brief Returns DTH11 temp integral. Call DTH11_readData() first
+ * @return temp val decimal
+ */
+uint8_t getTempIntegral(void){
+	return data.temp_integral;
+}
+
+/**
+ * @brief Returns DTH11 temp decimal. Call DTH11_readData() first
+ * @return temp val integral
+ */
+uint8_t getTempDecimal(void){
+	return data.temp_decimal;
+}
