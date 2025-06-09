@@ -9,7 +9,10 @@ written for the GD32VF103 MCU using the GD32VF103 standard peripheral library.
 
 ## Dependencies
 - GD32VF103 Standard Peripheral Library
-- General Purpose Timer6 
+- General Purpose Timer6
+- Use Pull-up resistor on data line, see picture below
+
+![DHT sensor](img/DHT11_Module.png)
 
 
 ## Note
