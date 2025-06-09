@@ -16,7 +16,6 @@ written for the GD32VF103 MCU using the GD32VF103 standard peripheral library.
 This driver is specific to the GD32VF103 platform and uses functions like:
 ```c
 gpio_input_bit_get(GPIOA, GPIO_PIN_1);
-or
 timer_enable(TIMER6);
 
 ## How it works
