@@ -1,32 +1,40 @@
 # DHT11 Driver for GD32VF103
 
-This is a simple driver for the DHT11 temperature and humidity sensor,
-written for the GD32VF103 MCU using the GD32VF103 standard peripheral library.
+Driver for the DHT11 temperature and humidity sensor for the GD32VF103 MCU.
 
 ## Features
 - Reads temperature and humidity
-- Blocking (Timer based) implementation
+- Blocking ~4ms implementation
+- Simple polling-based timing using Timer6
 
 ## Dependencies
-- GD32VF103 Standard Peripheral Library
-- General Purpose Timer6
-- Use Pull-up resistor on data line, see picture below
+- General Purpose Timer6 (`TIMER6`)
+- GPIO (input)
+- Pull-up resistor on data line (typically 10kΩ)
 
-![DHT sensor](img/DHT11_Module.png)
+## 📌 Pin Configuration
 
+The user must provide the GPIO base and pin used for the data line when initializing the driver.
 
-## Note
-This driver is specific to the GD32VF103 platform and uses functions like:
-```c
-gpio_input_bit_get(GPIOA, GPIO_PIN_1);
-timer_enable(TIMER6);
-```
+| Function   | Description                      | Configurable? | Example              |
+|------------|----------------------------------|----------------|----------------------|
+| `DATA`     | 1-wire data signal               | ✅ Yes         | `GPIOA`, `GPIO_PIN_1`|
+| `VDD`      | Power supply                     | ❌ No          | 5V                   |
+| `GND`      | Ground                           | ❌ No          | GND                  |
 
-## How it works
-The MCU polls the DHT11 sensor module by following a strict pattern from the datasheet https://www.electrokit.com/upload/product/41015/41015728/DHT11.pdf 
+> 💡 **Note:** Use a pull-up resistor (≈10kΩ) between `VDD` and `DATA` pin.
 
-By setting the data pin LOW and HIGH for a predetermined anount of time, the sensor module responds with 5 bytes of data, the last byte is a checksum, see pictures below.
+## 🧠 How it works
 
-![DHT11 sensor](img/SDS00001.BMP)
-![DHT11 sensor](img/SDS00002.BMP)
+The MCU communicates with the DHT11 sensor by following the strict timing protocol defined in the datasheet:
+
+1. MCU pulls data pin **LOW for ≥18ms** (start signal)
+2. MCU releases pin (set as input)
+3. DHT11 responds with:
+   - **80 µs LOW** + **80 µs HIGH** (response)
+4. Then transmits **40 bits** of data (temp + humidity + checksum)
+
+![DHT waveform](img/SDS00001.BMP)
+![DHT waveform](img/SDS00002.BMP)
+
 
