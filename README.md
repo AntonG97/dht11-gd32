@@ -14,7 +14,11 @@ Driver for the DHT11 temperature and humidity sensor for the GD32VF103 MCU.
 
 ## 📌 Pin Configuration
 
-The user must provide the GPIO base and pin used for the data line when initializing the driver.
+The user must provide the GPIO base and pin used for the data line when initializing the driver
+
+ ```c
+void DHT11_init(uint32_t gpio_periph, uint32_t pin);
+```
 
 | Function   | Description                      | Configurable? | Example              |
 |------------|----------------------------------|----------------|----------------------|
