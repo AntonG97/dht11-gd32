@@ -32,7 +32,7 @@ void DHT11_init(uint32_t gpio_periph, uint32_t pin);
 
 The MCU communicates with the DHT11 sensor by following the strict timing protocol defined in the datasheet:
 
-1. MCU pulls data pin **LOW for ≥18ms** (start signal)
+1. MCU pulls data pin LOW (start signal)
 2. MCU releases pin (set as input)
 3. DHT11 responds with:
    - **80 µs LOW** + **80 µs HIGH** (response)
