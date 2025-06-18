@@ -1,5 +1,5 @@
-#ifndef MINFIL_H
-#define MINFIL_H
+#ifndef DHT11_H
+#define DHT11_H
 
 #include <stdint.h>
 

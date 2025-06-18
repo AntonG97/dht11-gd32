@@ -38,11 +38,9 @@ void DHT11_init(uint32_t gpio_perpih, uint32_t pin){
 		case GPIOD: rcu_periph_clock_enable(RCU_GPIOD); break;
 		case GPIOE: rcu_periph_clock_enable(RCU_GPIOE); break;
 	}
-	//gpio_init(gpio_perpih, GPIO_MODE_OUT_OD, GPIO_OSPEED_50MHZ, pin);
+
 	gpio_init(sel_gpio_perpih, GPIO_MODE_OUT_OD, GPIO_OSPEED_50MHZ, sel_gpio_pin);
-	//for(volatile int i = 0; i < 90000; i++);
 	gpio_bit_set(sel_gpio_perpih, sel_gpio_pin);
-	//gpio_bit_write(gpio_perpih, pin, RESET);
 
 	rcu_periph_clock_enable(RCU_TIMER6);
 
